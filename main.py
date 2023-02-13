@@ -12,7 +12,10 @@ for filename in filepaths:
     print(header)
     pdf.add_page()
     pdf.set_font(family="Times", style="B", size=24)
-    pdf.cell(w=0, h=10, txt=header.title())
+    pdf.cell(w=50, h=10, txt=header.title(), ln=4)
+    pdf.set_font(family="Times", size=14)
+    with open(filename, "r") as content:
+        pdf.multi_cell(w=200, h=5, txt=content.read())
 
 
 pdf.output("Text/animals.pdf")
